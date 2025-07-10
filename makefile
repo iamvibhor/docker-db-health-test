@@ -5,6 +5,9 @@ COMPOSE = docker compose --env-file $(ENV_FILE)
 up:
 	$(COMPOSE) up --build -d
 
+build:
+	docker build -t backend:latest backend/
+
 down:
 	$(COMPOSE) down
 
