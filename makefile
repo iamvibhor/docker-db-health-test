@@ -17,3 +17,9 @@ restart:
 
 ps:
 	$(COMPOSE) ps
+
+scan:
+	trivy image --severity HIGH,CRITICAL backend:latest
+
+healthcheck:
+	curl --fail http://localhost:3000/health || echo "Unhealthy"
